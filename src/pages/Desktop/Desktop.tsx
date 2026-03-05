@@ -99,6 +99,15 @@ export default function Desktop() {
   };
 
   const focusWindow = (windowId: string) => {
+    const window = windows.find((w) => w.id === windowId);
+
+    // Se a janela já está ativa e não está minimizada, minimizar
+    if (activeWindow === windowId && window && !window.isMinimized) {
+      minimizeWindow(windowId);
+      return;
+    }
+
+    // Caso contrário, restaurar e focar
     const newZIndex = maxZIndex + 1;
     setMaxZIndex(newZIndex);
     setWindows(
