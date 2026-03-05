@@ -12,6 +12,8 @@ interface WindowProps {
   onClose?: () => void;
   zIndex?: number;
   onFocus?: () => void;
+  isMinimized?: boolean;
+  onMinimize?: () => void;
 }
 
 export default function Window({
@@ -22,8 +24,10 @@ export default function Window({
   onClose,
   zIndex = 10,
   onFocus,
+  isMinimized = false,
+  onMinimize,
 }: WindowProps) {
-  const { isMinimized, isMaximized, handleMaximize, handleMinimize } = useWindowState();
+  const { isMaximized, handleMaximize } = useWindowState();
   const { position, handleMouseDown } = useDraggable({ defaultPosition, isMaximized });
 
   if (isMinimized) return null;
@@ -46,7 +50,7 @@ export default function Window({
         title={title}
         icon={icon}
         onMouseDown={(e) => handleMouseDown(e, onFocus)}
-        onMinimize={handleMinimize}
+        onMinimize={onMinimize || (() => {})}
         onMaximize={() => handleMaximize(onFocus)}
         onClose={onClose || (() => {})}
       />

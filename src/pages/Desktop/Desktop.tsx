@@ -18,6 +18,7 @@ interface WindowState {
   content: React.ReactNode;
   isOpen: boolean;
   zIndex: number;
+  isMinimized: boolean;
 }
 
 export default function Desktop() {
@@ -69,7 +70,7 @@ export default function Desktop() {
       setMaxZIndex(newZIndex);
       setWindows(
         windows.map((w) =>
-          w.id === windowId ? { ...w, isOpen: true, zIndex: newZIndex } : w
+          w.id === windowId ? { ...w, isOpen: true, zIndex: newZIndex, isMinimized: false } : w
         )
       );
     } else {
@@ -82,6 +83,7 @@ export default function Desktop() {
           ...config,
           isOpen: true,
           zIndex: newZIndex,
+          isMinimized: false,
         },
       ]);
       setActiveWindow(windowId);
@@ -100,9 +102,18 @@ export default function Desktop() {
     const newZIndex = maxZIndex + 1;
     setMaxZIndex(newZIndex);
     setWindows(
-      windows.map((w) => (w.id === windowId ? { ...w, zIndex: newZIndex } : w))
+      windows.map((w) => (w.id === windowId ? { ...w, zIndex: newZIndex, isMinimized: false } : w))
     );
     setActiveWindow(windowId);
+  };
+
+  const minimizeWindow = (windowId: string) => {
+    setWindows(
+      windows.map((w) => (w.id === windowId ? { ...w, isMinimized: true } : w))
+    );
+    if (activeWindow === windowId) {
+      setActiveWindow(null);
+    }
   };
 
   return (
@@ -130,6 +141,8 @@ export default function Desktop() {
             onClose={() => closeWindow(window.id)}
             zIndex={window.zIndex}
             onFocus={() => focusWindow(window.id)}
+            isMinimized={window.isMinimized}
+            onMinimize={() => minimizeWindow(window.id)}
             defaultPosition={{
               x: 100 + windows.indexOf(window) * 30,
               y: 100 + windows.indexOf(window) * 30,
