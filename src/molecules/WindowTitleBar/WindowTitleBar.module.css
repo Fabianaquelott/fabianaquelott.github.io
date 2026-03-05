@@ -1,11 +1,15 @@
 .titleBar {
   background: linear-gradient(to right, #000080, #1084d0);
   padding: 2px 4px;
-  cursor: move;
+  cursor: grab;
   display: flex;
   align-items: center;
   justify-content: space-between;
   user-select: none;
+}
+
+.titleBar:active {
+  cursor: grabbing;
 }
 
 .titleContent {

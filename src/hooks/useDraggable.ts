@@ -50,9 +50,11 @@ export function useDraggable({ defaultPosition, isMaximized }: UseDraggableProps
 
   useEffect(() => {
     if (isDragging) {
+      document.body.style.cursor = 'grabbing';
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseup', handleMouseUp);
       return () => {
+        document.body.style.cursor = '';
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('mouseup', handleMouseUp);
       };
