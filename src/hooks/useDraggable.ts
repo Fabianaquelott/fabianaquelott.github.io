@@ -37,9 +37,15 @@ export function useDraggable({ defaultPosition, isMaximized }: UseDraggableProps
 
   const handleMouseMove = (e: MouseEvent) => {
     if (isDragging && !isMaximized) {
+      const newX = e.clientX - dragOffset.x;
+      const newY = e.clientY - dragOffset.y;
+
+      const maxX = window.innerWidth - 100;
+      const maxY = window.innerHeight - 100;
+
       setPosition({
-        x: e.clientX - dragOffset.x,
-        y: e.clientY - dragOffset.y,
+        x: Math.max(0, Math.min(newX, maxX)),
+        y: Math.max(0, Math.min(newY, maxY)),
       });
     }
   };
