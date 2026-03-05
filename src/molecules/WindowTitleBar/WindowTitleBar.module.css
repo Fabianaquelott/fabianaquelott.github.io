@@ -14,7 +14,16 @@
   gap: 4px;
   color: white;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .titleContent {
+    font-size: 14px;
+  }
 }
 
 .titleIcon {

@@ -10,20 +10,35 @@
   border-top-color: white;
   display: flex;
   align-items: center;
-  padding: 0 4px;
-  gap: 4px;
+  padding: 0 2px;
+  gap: 2px;
   z-index: 50;
+}
+
+@media (min-width: 640px) {
+  .taskbar {
+    padding: 0 4px;
+    gap: 4px;
+  }
 }
 
 .windowList {
   flex: 1;
   display: flex;
-  gap: 4px;
+  gap: 2px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+@media (min-width: 640px) {
+  .windowList {
+    gap: 4px;
+  }
 }
 
 .clock {
   height: 32px;
-  padding: 0 12px;
+  padding: 0 6px;
   background-color: #c0c0c0;
   border-width: 2px;
   border-style: solid;
@@ -35,9 +50,21 @@
   align-items: center;
 }
 
+@media (min-width: 640px) {
+  .clock {
+    padding: 0 12px;
+  }
+}
+
 .clockText {
-  font-size: 14px;
+  font-size: 11px;
   font-family: monospace;
+}
+
+@media (min-width: 640px) {
+  .clockText {
+    font-size: 14px;
+  }
 }
 
 .startIcon {

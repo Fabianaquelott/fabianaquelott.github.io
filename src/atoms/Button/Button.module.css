@@ -26,24 +26,44 @@
 .startButton {
   composes: button;
   height: 32px;
-  padding: 0 12px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   font-weight: bold;
+  font-size: 10px;
+}
+
+@media (min-width: 640px) {
+  .startButton {
+    padding: 0 12px;
+    gap: 8px;
+    font-size: 11px;
+  }
 }
 
 .taskbarButton {
   composes: button;
   height: 32px;
-  padding: 0 12px;
+  padding: 0 6px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  max-width: 200px;
+  gap: 4px;
+  max-width: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .taskbarButton {
+    padding: 0 12px;
+    gap: 8px;
+    max-width: 200px;
+    font-size: 11px;
+  }
 }
 
 .taskbarButtonActive {
@@ -53,6 +73,13 @@
   border-left-color: #808080;
   border-right-color: white;
   border-bottom-color: white;
+  max-width: 120px;
+}
+
+@media (min-width: 640px) {
+  .taskbarButtonActive {
+    max-width: 200px;
+  }
 }
 
 .windowButton {
