@@ -1,0 +1,41 @@
+.icon {
+  width: 80px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.2s;
+}
+
+.icon:hover {
+  background-color: rgba(0, 0, 128, 0.3);
+}
+
+.iconImage {
+  color: white;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  transition: transform 0.2s;
+}
+
+.icon:hover .iconImage {
+  transform: scale(1.1);
+}
+
+.label {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  padding: 0 4px;
+  background-color: rgba(0, 0, 128, 0);
+  transition: background-color 0.2s;
+}
+
+.icon:hover .label {
+  background-color: rgba(0, 0, 128, 1);
+}

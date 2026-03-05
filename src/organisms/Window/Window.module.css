@@ -1,0 +1,28 @@
+.window {
+  position: fixed;
+  background-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s;
+  min-width: 400px;
+}
+
+.windowMaximized {
+  composes: window;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  margin: 0;
+}
+
+.content {
+  padding: 8px;
+  overflow: auto;
+  max-height: 600px;
+}

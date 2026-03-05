@@ -1,0 +1,83 @@
+.card {
+  background-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.icon {
+  color: #000080;
+}
+
+.description {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.techTag {
+  padding: 2px 8px;
+  background-color: #000080;
+  color: white;
+  font-size: 12px;
+  border: 1px solid white;
+}
+
+.status {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.statusComplete {
+  composes: status;
+  color: #006400;
+}
+
+.statusInProgress {
+  composes: status;
+  color: #ff8c00;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  animation: slideIn 0.5s ease-out forwards;
+}

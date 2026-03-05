@@ -1,0 +1,16 @@
+.desktop {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #008080;
+  position: relative;
+}
+
+.iconGrid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+  padding: 16px;
+}

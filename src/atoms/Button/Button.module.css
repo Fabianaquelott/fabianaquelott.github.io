@@ -1,0 +1,116 @@
+.button {
+  padding: 2px 4px;
+  background-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  font-size: 11px;
+  font-weight: normal;
+  transition: all 0.1s;
+}
+
+.button:hover {
+  background-color: #d0d0d0;
+}
+
+.button:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: white;
+  border-bottom-color: white;
+}
+
+.startButton {
+  composes: button;
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.taskbarButton {
+  composes: button;
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskbarButtonActive {
+  composes: taskbarButton;
+  background-color: white;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: white;
+  border-bottom-color: white;
+}
+
+.windowButton {
+  composes: button;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formButton {
+  composes: button;
+  width: 100%;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.formButton:hover {
+  transform: scale(1.05);
+}
+
+.linkButton {
+  composes: button;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.linkButton:hover {
+  transform: scale(1.05);
+}
+
+.menuButton {
+  width: 100%;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.menuButton:hover {
+  background-color: #000080;
+  color: white;
+}

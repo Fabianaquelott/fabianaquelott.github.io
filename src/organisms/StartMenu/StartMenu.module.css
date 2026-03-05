@@ -1,0 +1,50 @@
+.menu {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  width: 256px;
+  background-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 40;
+  animation: slideUp 0.2s ease-out;
+}
+
+.sidebar {
+  background: linear-gradient(to bottom, #000080, #1084d0);
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 8px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.sidebarTitle {
+  font-weight: normal;
+}
+
+.items {
+  padding: 4px;
+}
+
+.divider {
+  border-top: 1px solid #808080;
+  margin: 4px 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

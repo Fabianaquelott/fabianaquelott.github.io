@@ -1,0 +1,67 @@
+.container {
+  background-color: white;
+  padding: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: white;
+  border-bottom-color: white;
+  min-height: 400px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.successMessage {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #ffffc0;
+  border: 2px solid black;
+  font-size: 12px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

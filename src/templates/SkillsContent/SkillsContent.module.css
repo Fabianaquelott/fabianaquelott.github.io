@@ -1,0 +1,36 @@
+.container {
+  background-color: white;
+  padding: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: white;
+  border-bottom-color: white;
+  min-height: 400px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 16px;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tipBox {
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #ffffc0;
+  border: 2px solid #808080;
+}
+
+.tipText {
+  font-size: 12px;
+  font-family: monospace;
+}

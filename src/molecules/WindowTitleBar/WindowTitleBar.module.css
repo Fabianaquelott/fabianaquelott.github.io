@@ -1,0 +1,27 @@
+.titleBar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  padding: 2px 4px;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.titleContent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.titleIcon {
+  color: white;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 2px;
+}

@@ -1,0 +1,79 @@
+.container {
+  background-color: white;
+  padding: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: white;
+  border-bottom-color: white;
+  min-height: 400px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border: 4px solid white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 16px;
+}
+
+.text {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.infoBox {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #c0c0c0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+}
+
+.infoText {
+  font-size: 12px;
+  font-family: monospace;
+  line-height: 1.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+}
