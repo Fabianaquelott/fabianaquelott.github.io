@@ -1,6 +1,7 @@
 .icon {
-  width: 80px;
-  height: 96px;
+  width: 100%;
+  height: auto;
+  min-height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +10,13 @@
   cursor: pointer;
   padding: 8px;
   transition: all 0.2s;
+}
+
+@media (min-width: 640px) {
+  .icon {
+    width: 80px;
+    height: 96px;
+  }
 }
 
 .icon:hover {
@@ -27,13 +35,20 @@
 
 .label {
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   padding: 0 4px;
   background-color: rgba(0, 0, 128, 0);
   transition: background-color 0.2s;
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .label {
+    font-size: 12px;
+  }
 }
 
 .icon:hover .label {

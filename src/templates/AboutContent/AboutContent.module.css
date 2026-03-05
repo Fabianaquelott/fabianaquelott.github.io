@@ -1,6 +1,6 @@
 .container {
   background-color: white;
-  padding: 16px;
+  padding: 12px;
   border-width: 2px;
   border-style: solid;
   border-top-color: #808080;
@@ -8,6 +8,12 @@
   border-right-color: white;
   border-bottom-color: white;
   min-height: 400px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 16px;
+  }
 }
 
 .content {
@@ -18,31 +24,53 @@
 }
 
 .avatar {
-  width: 128px;
-  height: 128px;
+  width: 96px;
+  height: 96px;
   background: linear-gradient(135deg, #4a90e2, #357abd);
-  border: 4px solid white;
+  border: 3px solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: bold;
   flex-shrink: 0;
 }
 
+@media (min-width: 640px) {
+  .avatar {
+    width: 128px;
+    height: 128px;
+    border: 4px solid white;
+    font-size: 48px;
+  }
+}
+
 .title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #000080;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 
 .text {
   margin-bottom: 12px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .text {
+    font-size: 14px;
+  }
 }
 
 .infoBox {
