@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { User, FolderOpen, Mail, Wrench } from 'lucide-react';
 import Window from '../../organisms/Window/Window';
 import Taskbar from '../../organisms/Taskbar/Taskbar';
 import StartMenu from '../../organisms/StartMenu/StartMenu';
 import DesktopIcon from '../../molecules/DesktopIcon/DesktopIcon';
+import WelcomePopup from '../../organisms/WelcomePopup/WelcomePopup';
 import AboutContent from '../../templates/AboutContent/AboutContent';
 import ProjectsContent from '../../templates/ProjectsContent/ProjectsContent';
 import SkillsContent from '../../templates/SkillsContent/SkillsContent';
@@ -24,6 +25,14 @@ export default function Desktop() {
   const [windows, setWindows] = useState<WindowState[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
   const [maxZIndex, setMaxZIndex] = useState(10);
+  const [showWelcome, setShowWelcome] = useState(false);
+
+  useEffect(() => {
+    const hideWelcome = localStorage.getItem('hideWelcomePopup');
+    if (!hideWelcome) {
+      setShowWelcome(true);
+    }
+  }, []);
 
   const windowConfigs = {
     about: {
@@ -98,6 +107,8 @@ export default function Desktop() {
 
   return (
     <div className={styles.desktop}>
+      {showWelcome && <WelcomePopup onClose={() => setShowWelcome(false)} />}
+
       <div className={styles.iconGrid}>
         <DesktopIcon icon={<User size={48} />} label="About Me" onDoubleClick={() => openWindow('about')} />
         <DesktopIcon
