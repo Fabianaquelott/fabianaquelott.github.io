@@ -4,7 +4,9 @@ export default function AboutContent() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.avatar}>FP</div>
+        <div className={styles.avatar}>
+          <img src="https://avatars.githubusercontent.com/u/56900077?v=40" alt="Fabiana" />
+        </div>
         <div>
           <h2 className={styles.title}>Full Stack Developer</h2>
           <p className={styles.text}>
