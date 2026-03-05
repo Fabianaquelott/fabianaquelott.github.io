@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import WindowTitleBar from '../../molecules/WindowTitleBar/WindowTitleBar';
+import { useDraggable } from '../../hooks/useDraggable';
+import { useWindowState } from '../../hooks/useWindowState';
 import styles from './Window.module.css';
 
 interface WindowProps {
@@ -21,75 +23,8 @@ export default function Window({
   zIndex = 10,
   onFocus,
 }: WindowProps) {
-  const getCenteredPosition = () => {
-    const isMobile = window.innerWidth < 640;
-    if (isMobile) {
-      return {
-        x: 4,
-        y: 50,
-      };
-    }
-    return defaultPosition;
-  };
-
-  const [position, setPosition] = useState(getCenteredPosition());
-  const [isDragging, setIsDragging] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobile = window.innerWidth < 640;
-      if (isMobile && !isMaximized) {
-        setPosition({ x: 4, y: 50 });
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMaximized]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (target.closest('button')) return;
-
-    setIsDragging(true);
-    setDragOffset({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y,
-    });
-    onFocus?.();
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging && !isMaximized) {
-      setPosition({
-        x: e.clientX - dragOffset.x,
-        y: e.clientY - dragOffset.y,
-      });
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleMouseUp);
-      };
-    }
-  }, [isDragging, dragOffset]);
-
-  const handleMaximize = () => {
-    setIsMaximized(!isMaximized);
-    onFocus?.();
-  };
+  const { isMinimized, isMaximized, handleMaximize, handleMinimize } = useWindowState();
+  const { position, handleMouseDown } = useDraggable({ defaultPosition, isMaximized });
 
   if (isMinimized) return null;
 
@@ -110,9 +45,9 @@ export default function Window({
       <WindowTitleBar
         title={title}
         icon={icon}
-        onMouseDown={handleMouseDown}
-        onMinimize={() => setIsMinimized(true)}
-        onMaximize={handleMaximize}
+        onMouseDown={(e) => handleMouseDown(e, onFocus)}
+        onMinimize={handleMinimize}
+        onMaximize={() => handleMaximize(onFocus)}
         onClose={onClose || (() => {})}
       />
       <div className={styles.content}>{children}</div>
