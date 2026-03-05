@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://fabianaquelott.github.io/portifolio-fabiana",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "deploy": "gh-pages -d dist",
-    "homepage": "https://Fabianaquelott.github.io/portfolio",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
