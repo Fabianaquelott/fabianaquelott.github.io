@@ -21,11 +21,34 @@ export default function Window({
   zIndex = 10,
   onFocus,
 }: WindowProps) {
-  const [position, setPosition] = useState(defaultPosition);
+  const getCenteredPosition = () => {
+    const isMobile = window.innerWidth < 640;
+    if (isMobile) {
+      return {
+        x: 4,
+        y: 50,
+      };
+    }
+    return defaultPosition;
+  };
+
+  const [position, setPosition] = useState(getCenteredPosition());
   const [isDragging, setIsDragging] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 640;
+      if (isMobile && !isMaximized) {
+        setPosition({ x: 4, y: 50 });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMaximized]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
